@@ -1,4 +1,4 @@
-# Expressjs ,Ejs and Mysql
+# Expressjs ,Ejs and Mysql - Windows Os
 A simple startup project configuration using express js as the server, ejs for templating and mysql as the database.  
 
 This was tested on a windows 10 os machine where the module musql2 was used.
