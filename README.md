@@ -1,52 +1,92 @@
-first create the project folder and initialize the project
-i.e > mkdir <dirname> && npm init -y
-install express,ejs,nodemon,mysql,body-parser modules
-i.e > npm i express ejs@latest nodemon@latest mysql@latest body-parser@latest
-create a server file
-i.e > touch server.js
+# Expressjs ,Ejs and Mysql
+A simple startup project configuration using express js as the server, ejs for templating and mysql as the database.  
 
-create and initialize server in express.js
+This was tested on a windows 10 os machine where the module musql2 was used.
 
-create db.js and initialize/create a mysql db connection
+## Preliquisites
+Requirements  
+👉: node version 18.16.x  
+👉: npm package manager is used in this case  
 
-create the public folder with css,js and images folder
+## Usage and Installation
+1. Clone this github repository
+   ```sh
+     git clone https://github.com/Newton-Nganga/express-ejs-mysql-win.git
+   ```
+3. Install the required dependencies
+    ```sh
+    cd express-ejs-mysql && npm install
+    ```
+5. Replace the creadentials in db.js with your creadentials
+    - You may also need to replace localhost with the ip adress: 127.0.0.1
+      
+  ```js
+  const mysql = require('mysql2')
+//your credentials
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'felix',
+  database: 'test',
+  port:'3306'
+});
+//try to make a connection
+connection.connect((err) => {
+  console.log('==== TRYING TO CONNECT TO THE DB ====')
+  if(!err) {
+    console.log('Connected to MySQL database');
+  }
+  else {
+    console.log("==== COULDN'T CONNECT TO THE DB",err);
+  }
+});
 
-create a folder called views that will hold all the views and inside it partials folder
 
-create routers.js file to place all the methods to be performed
+// export default db;
+module.exports = connection;
+
+  ```
+## Project Sructure
+
+```sh
+.
+├── controllers
+│   └── controller.js
+├── db.js
+├── package.json
+├── package-lock.json
+├── public
+│   ├── css
+│   ├── images
+│   │   └── bird.jpg
+│   └── js
+├── README.md
+├── routers
+│   └── routers.js
+├── server.js
+├── Utils
+└── views
+    ├── 404.ejs
+    ├── add.ejs
+    ├── delete.ejs
+    ├── partials
+    │   ├── form-fields.ejs
+    │   ├── form-styling.ejs
+    │   └── head.ejs
+    ├── update.ejs
+    └── users.ejs
 
 
-project structure
-------------------
+```
+## Screensnaps
+![users](https://github.com/Newton-Nganga/express-ejs-mysql-win/assets/93589514/be30dd21-b425-44b2-9eda-38e48fbc8fd6)
+![users-add](https://github.com/Newton-Nganga/express-ejs-mysql-win/assets/93589514/d78cf7da-67c7-4f14-b334-f8de6d9d7aa1)
+![users-update](https://github.com/Newton-Nganga/express-ejs-mysql-win/assets/93589514/744c7e11-ef2b-4597-96ce-24d9d456dd7e)
 
-|public
-  ---|css          //all ur css stylesheets
-  ---|images       //all ur image resources
-  ---|js           //all ur js scripts
-|node_modules      //npm node modules
-|views             //holds the html files to render
-  ---|partials       //contains ejs partials
-db.js              //to establish mysql db connection
-server.js          //to start the express js server (nodemon server.js)
-package-lock.json  
-package.json       //installed modules with scripts
-README.md
 
-*****************************************************************
-                opt to use this routers,controllers 
-*****************************************************************
-|routers
-  ---router.js
-|controllers
-  ---homepage.js
-  ---about.js
-  ---users
-  ---contact us
-*****************************************************************
-               or opt to use this single routers
-*****************************************************************
-routers.js         //all the http methods to get,post,put,patch and delete rows 
-
+## contributions
+This project is enterly for use in starting a development server,Its open to contribution.  
+Clone the repo and Boom! 🤯: 💥: 💥: You can now mess up things .
 
 
 
